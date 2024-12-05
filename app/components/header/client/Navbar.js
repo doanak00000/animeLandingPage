@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 const Navbar = ({ onSectionChange }) => {
   const [activeSection, setActiveSection] = useState("girls");
+  const savedPreference = localStorage.getItem("contentPreference");
   useEffect(() => {
-    const savedPreference = localStorage.getItem("contentPreference");
     if (savedPreference) {
       setActiveSection(savedPreference);
     }
-  }, []);
+  }, [savedPreference]);
   const handleSectionClick = (section) => {
     setActiveSection(section);
     onSectionChange(section);
